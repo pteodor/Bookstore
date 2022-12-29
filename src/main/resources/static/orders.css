@@ -1,0 +1,24 @@
+.order {
+    border: 1px solid black;
+    margin: 5px 0;
+}
+
+.order .id {
+    display: inline-block;
+    width: 10%;
+}
+
+.order .date {
+    display: inline-block;
+    width: 30%;
+}
+
+.order .status {
+    display: inline-block;
+    width: 30%;
+}
+
+.order .details {
+    display: inline-block;
+    width: 28%;
+}

@@ -1,0 +1,38 @@
+.order-position {
+    border: 1px solid black;
+    margin: 5px 0;
+}
+
+.order-position .title {
+    display: inline-block;
+    width: 70%;
+    margin: 0;
+    padding: 0;
+}
+
+.order-position .quantity {
+    display: inline-block;
+    width: 9%;
+    margin: 0;
+    padding: 0;
+}
+
+.order-position .price {
+    display: inline-block;
+    width: 9%;
+    margin: 0;
+    padding: 0;
+}
+
+.order-position .overall {
+    display: inline-block;
+    width: 9%;
+    margin: 0;
+    padding: 0;
+}
+
+.order-position .whole-basket-label {
+    display: inline-block;
+    width: 88%;
+    text-align: right;
+}

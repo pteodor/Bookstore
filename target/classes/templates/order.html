@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/basket.css">
+    <link rel="stylesheet" href="/orders.css">
+    <title>BookStore</title>
+</head>
+<body>
+<div th:replace="fragments.html :: logo"></div>
+<div th:replace="fragments.html :: menu"></div>
+<div id="content">
+    <div class="order">
+        <div th:text="'Id zamówienia: ' + ${order.id}" class="id"></div>
+        <div th:text="'Data złożenia zamówienia: ' + ${order.date}" class="date"></div>
+        <div th:text="'Status: ' + ${order.status.getTextValue()}" class="status"></div>
+    </div>
+    <div th:each="orderPosition : ${order.orderPositions}" class="order-position">
+        <div th:text="${orderPosition.book.title}" class="title"></div>
+        <div th:text="${orderPosition.quantity}" class="quantity"></div>
+        <div th:text="${#numbers.formatDecimal(orderPosition.book.price,1,2)} + ' zł'" class="price"></div>
+        <div th:text="${#numbers.formatDecimal(orderPosition.book.price * orderPosition.quantity,1,2)} + ' zł'" class="overall"></div>
+    </div>
+    <div class="order-position">
+        <div class="whole-basket-label">Podsumowanie</div>
+        <div th:text="${#numbers.formatDecimal(orderSum,1,2)} + ' zł'" class="price"></div>
+    </div>
+</div>
+</body>
+</html>
