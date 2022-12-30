@@ -1,6 +1,5 @@
 package pl.first.project.book.store.database;
 
-import org.springframework.context.annotation.Primary;
 import pl.first.project.book.store.model.User;
 
 import java.util.List;

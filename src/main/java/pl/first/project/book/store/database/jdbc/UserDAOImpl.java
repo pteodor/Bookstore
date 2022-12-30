@@ -1,6 +1,7 @@
 package pl.first.project.book.store.database.jdbc;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import pl.first.project.book.store.database.IUserDAO;
 import pl.first.project.book.store.model.User;
 
@@ -13,9 +14,6 @@ public class UserDAOImpl implements IUserDAO {
 
     @Autowired
     Connection connection;
-
-    public UserDAOImpl() {
-    }
 
     @Override
     public List<User> getUsers() {
@@ -31,7 +29,7 @@ public class UserDAOImpl implements IUserDAO {
                         rs.getString("password")));
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println("Problem z baza !!");
         }
         return users;
     }

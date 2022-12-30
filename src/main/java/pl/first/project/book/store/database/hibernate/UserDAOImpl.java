@@ -32,9 +32,9 @@ public class UserDAOImpl implements IUserDAO {
     public Optional<User> getUserByLogin(String login) {
         Session session = this.sessionFactory.openSession();
         try {
-            Query<User> query = session.createQuery("FROM pl.first.project.book.store.model.User WHERE login = :login");
-            query.setParameter("id", login);
-            query.getResultList();
+            Query<User> query = session.createQuery
+                    ("FROM pl.first.project.book.store.model.User WHERE login = :login");
+            query.setParameter("login", login);
             User result = query.getSingleResult();
             session.close();
             return Optional.of(result);
@@ -57,7 +57,6 @@ public class UserDAOImpl implements IUserDAO {
             tx = session.beginTransaction();
             session.save(user);
             tx.commit();
-            session.close();
         } catch (ConstraintViolationException e) {
             throw e;
         } catch (Exception e) {

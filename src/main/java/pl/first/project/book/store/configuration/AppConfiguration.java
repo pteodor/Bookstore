@@ -4,18 +4,13 @@ import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.Collections;
 
 @Configuration
@@ -44,8 +39,8 @@ public class AppConfiguration {
                 .useDefaultResponseMessages(false)
                 .directModelSubstitute(Object.class, Void.class)
                 .select()
-//                .apis(RequestHandlerSelectors.basePackage("pl.first.project.book.store.controllers.rest.api"))
                 .paths(PathSelectors.ant("/api/**"))
+                //.apis(RequestHandlerSelectors.basePackage("pl.first.project.book.store.controllers.rest.api"))
                 .build()
                 .apiInfo(createApiInfo());
     }
